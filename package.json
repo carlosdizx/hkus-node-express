@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/carlosdizx/hkus-node-express#readme",
   "devDependencies": {
+    "@types/express": "^4.17.17",
     "@types/node": "^20.4.10",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
