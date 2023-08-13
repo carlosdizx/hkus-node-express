@@ -6,7 +6,7 @@ const port = 3000;
 
 const app = express();
 
-app.use((req, res, next) => {
+app.use((req, res) => {
   console.log(req.headers);
   res.statusCode = 200;
   res.header("Content-Type", "text/html");
@@ -18,11 +18,3 @@ const server = http.createServer(app);
 server.listen(port, hostname, () =>
   console.log(`Server running at http://${hostname}:${port}`)
 );
-
-// app.get("/", (_, res) => {
-//   res.send("¡Hola, este es mi servidor Express con TypeScript!");
-// });
-//
-// app.listen(port, () => {
-//   console.log(`Servidor corriendo en el puerto ${port}`);
-// });
