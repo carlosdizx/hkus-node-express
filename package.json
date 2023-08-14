@@ -5,7 +5,7 @@
   "main": "src/app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsc && npx ts-node dist/app.js"
+    "start": "npx tsc && npx ts-node dist/app.js && Xcopy .\\public\\ .\\dist\\public\\"
   },
   "author": "Carlos Ernesto Diaz Basante",
   "license": "ISC",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/carlosdizx/hkus-node-express#readme",
   "devDependencies": {
     "@types/express": "^4.17.17",
+    "@types/morgan": "^1.9.4",
     "@types/node": "^20.4.10",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
