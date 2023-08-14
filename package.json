@@ -4,9 +4,9 @@
   "description": "Node express Example",
   "main": "src/app.ts",
   "scripts": {
-    "start": "npx ts-node dist/app.js",
+    "start": "npx tsc && npx ts-node dist/app.js",
     "build:windows": "npx tsc && robocopy public dist/public /E",
-    "start:windows": "npm run build:windows && node dist/app.js"
+    "start:building": "npm run build:windows && node dist/app.js"
   },
   "author": "Carlos Ernesto Diaz Basante",
   "license": "ISC",
@@ -29,7 +29,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "1.19.1",
     "express": "^4.16.3",
     "morgan": "^1.10.0"
   }
