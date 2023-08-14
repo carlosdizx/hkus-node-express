@@ -4,8 +4,9 @@
   "description": "Node express Example",
   "main": "src/app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsc && npx ts-node dist/app.js && Xcopy .\\public\\ .\\dist\\public\\"
+    "start": "npx ts-node dist/app.js",
+    "build:windows": "npx tsc && robocopy public dist/public /E",
+    "start:windows": "npm run build:windows && node dist/app.js"
   },
   "author": "Carlos Ernesto Diaz Basante",
   "license": "ISC",
@@ -21,6 +22,8 @@
     "@types/express": "^4.17.17",
     "@types/morgan": "^1.9.4",
     "@types/node": "^20.4.10",
+    "cpy-cli": "^5.0.0",
+    "meow": "^12.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   },
