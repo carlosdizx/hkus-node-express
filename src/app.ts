@@ -2,6 +2,7 @@ import express from "express";
 import http from "http";
 import morgan from "morgan";
 import bodyParser from "body-parser";
+import dishRouter from "./routes/dish.router";
 
 const hostname = "localhost";
 const port = 3000;
@@ -11,51 +12,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "\\public\\"));
 
-app.all("/dishes", (_, res, next) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  next();
-});
-
-app.get("/dishes", (_, res) => {
-  res.send({ message: "Sending all the dishes" }).end();
-});
-
-app.post("/dishes", (req, res) => {
-  res.send({ message: "Adding the dishes", dish: req.body }).end();
-});
-
-app.put("/dishes", (req, res) => {
-  res.statusCode = 403;
-  res.send({ message: "Put operation not supported on /dishes" }).end();
-});
-
-app.delete("/dishes", (req, res) => {
-  res.send({ message: "Deleting dishes selected" }).end();
-});
-
-app.get("/dishes/:dishId", (req, res) => {
-  const { dishId } = req.params;
-  res.send({ message: "Sending details of the dish", dishId }).end();
-});
-
-app.post("/dishes/:dishId", (req, res) => {
-  const { dishId } = req.params;
-  res.statusCode = 403;
-  res
-    .send({ message: `Post operation not supported on /dishes/${dishId}` })
-    .end();
-});
-
-app.put("/dishes/:dishId", (req, res) => {
-  const { dishId } = req.params;
-  res.send({ message: "Updating details of the dish", dishId }).end();
-});
-
-app.delete("/dishes/:dishId", (req, res) => {
-  const { dishId } = req.params;
-  res.send({ message: "Deleting dish selected", dishId }).end();
-});
+app.use("/dishes", dishRouter);
 
 app.use((_, res) => {
   res.statusCode = 200;
