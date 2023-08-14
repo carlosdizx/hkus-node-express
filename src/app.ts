@@ -3,6 +3,7 @@ import http from "http";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import dishRouter from "./routes/dish.router";
+import promotionRouter from "./routes/promotion.router";
 
 const hostname = "localhost";
 const port = 3000;
@@ -13,6 +14,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "\\public\\"));
 
 app.use("/dishes", dishRouter);
+app.use("/promotions", promotionRouter);
 
 app.use((_, res) => {
   res.statusCode = 200;
